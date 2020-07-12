@@ -1,0 +1,6 @@
+#+TITLE: Gabe's Dotfiles
+
+* How it works
+[[https://wiki.archlinux.org/index.php/Dotfiles][This ]] describes the method I am using (under Tracking dotfiles directly with
+Git). It is just a git repo with a separate working tree so I don't have to have
+a git repo in `$HOME`.

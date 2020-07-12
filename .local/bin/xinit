@@ -1,0 +1,14 @@
+xrandr --rate 60
+
+xrdb ~/.Xresources
+
+feh --bg-scale ~/wallpapers/`ls ~/wallpapers | shuf -n 1`
+
+dunst &
+
+#LOCK=`xrdb -query | grep "Xautolock\*time:" | cut -f 2` 
+#xset s $((4 * 60 + 45)) $((5 * 60))
+#xset dpms 600 600 600
+
+xss-lock -l -- ~/.local/bin/transfer-sleep-lock-i3lock.sh &
+xautolock -detectsleep &
