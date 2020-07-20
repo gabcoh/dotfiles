@@ -34,8 +34,8 @@
   :ensure nil
   :after evil
   :config
-  (leader-add-leader dired-mode-map)
-  (define-key file-ops-map "d" 'dired)
+  (leader-files-def
+    "d" 'dired)
   )
 (use-package elisp-mode
   :ensure nil
@@ -57,19 +57,17 @@
     (ido-find-file-in-dir user-emacs-directory)
     )
   :config
-  (define-key leader-map "l" elisp-ops-map)
-  
-  (define-key elisp-ops-map "l" 'load-current-elisp-file)
-  (define-key elisp-ops-map "f" 'ido-at-config)
-  (define-key elisp-ops-map "x" 'eval-expression)
-  (define-key elisp-ops-map "r" 'eval-region)
-  (define-key elisp-ops-map "s" 'eval-region)
+  (leader-lisp-def
+    "l" 'load-current-elisp-file
+    "f" 'ido-at-config
+    "x" 'eval-expression
+    "r" 'eval-region
+    "s" 'eval-region)
   )
 (use-package info
   :ensure nil
   :after evil
   :config
-  (leader-add-leader Info-mode-map)
   )
 (use-package artist
   :ensure nil

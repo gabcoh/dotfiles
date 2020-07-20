@@ -16,10 +16,17 @@
   (defvar org-ops-map (make-sparse-keymap)
     "Keymap for elisp operation shortcuts.")
   :config
-  (define-key leader-map "o" org-ops-map)
+  (require 'org-protocol)
+  (leader-org-def
+    "a" 'org-agenda
+    "c" 'org-capture
+    "f" 'ido-at-org)
+  (leader-org-def :keymap org-mode-map
+    "o" 'org-open-at-point
+    "t" 'org-todo
+    "x" 'org-archive-subtree
+    "g" 'org-set-tags-command
+    "p" 'org-set-property)
 
-  (global-set-key (kbd "C-c l") 'org-store-link)
-  (define-key org-ops-map "a" 'org-agenda)
-  (define-key org-ops-map "c" 'org-capture)
-  (define-key org-ops-map "f" 'ido-at-org)
+  ;; (global-set-key (kbd "C-c l") 'org-store-link)
   )
