@@ -26,7 +26,12 @@
     "t" 'org-todo
     "x" 'org-archive-subtree
     "g" 'org-set-tags-command
-    "p" 'org-set-property)
+    "p" 'org-set-property
+    )
+  (general-def :states 'insert :keymap org-mode-map
+    "RET" '(lambda () (interactive) (org-return t))
+    (kbd "<S-return>") '(lambda () (interactive) (org-return nil))
+    )
 
   ;; (global-set-key (kbd "C-c l") 'org-store-link)
   )
