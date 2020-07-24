@@ -26,10 +26,10 @@
   :config
   (tool-bar-mode -1)
   )
-(use-package ido
-  :config
-  (ido-mode 1)
-  )
+;; (use-package ido
+;;   :config
+;;   (ido-mode 1)
+;;   )
 (use-package dired
   :ensure nil
   :after evil
@@ -51,15 +51,15 @@
       (message "Current buffer not an elisp file")
       )
     )
-  (defun ido-at-config ()
-    "ido-find-file starting at emacs config"
+  (defun find-at-config ()
+    "find-file starting at emacs config"
     (interactive)
-    (ido-find-file-in-dir user-emacs-directory)
+    (counsel-find-file user-emacs-directory)
     )
   :config
   (leader-lisp-def
     "l" 'load-current-elisp-file
-    "f" 'ido-at-config
+    "f" 'find-at-config
     "x" 'eval-expression
     "r" 'eval-region
     "s" 'eval-region)

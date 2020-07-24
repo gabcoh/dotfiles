@@ -20,10 +20,16 @@
 )
 
 (use-package evil
-  :after (general ido)
+  :after (general)
   :hook (after-init . evil-mode)
   :demand
   :config
+
+  (general-def
+    :states '(normal motion)
+    :keymaps 'override
+    ":" 'execute-extended-command)
+
   (general-define-key :keymaps 'evil-insert-state-map
 		      (general-chord "jk") 'evil-normal-state)
 
@@ -32,7 +38,8 @@
 ;;; Buffer commands functions ===== 
 ;;; Buffer commands bindings ===========
   (leader-buffer-def
-	      "b" (ido-force-open-in-same-window ido-switch-buffer)
+	      ;;"b" (ido-force-open-in-same-window ido-switch-buffer)
+	      "b" 'counsel-switch-buffer
 	      "k" 'kill-current-buffer
 	      "n" 'next-buffer
 	      "p" 'previous-buffer
@@ -63,7 +70,8 @@
 ;;; File commands functions ===== 
 ;;; File commands bindings ===========
   (leader-files-def
-	      "f" (ido-force-open-in-same-window ido-find-file)
+	      ;;"f" (ido-force-open-in-same-window ido-find-file)
+	      "f" 'counsel-find-file
 	      "s" 'save-buffer)
 
 ;;; Elisp mode bindings

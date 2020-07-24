@@ -22,7 +22,7 @@
  %^T"))))
  '(package-selected-packages
    (quote
-    (evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))))
+    (counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -5,7 +5,7 @@
   (after-init . org-roam-mode)
   :custom
   (org-roam-directory "~/Nextcloud/notes/org")
-  (org-roam-completion-system 'ido)
+  (org-roam-completion-system 'ivy)
   :config
   (require 'org-roam-protocol)
   (leader-org-def :keymap org-roam-mode-map
