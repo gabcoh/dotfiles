@@ -21,14 +21,14 @@
     "a" 'org-agenda
     "c" 'org-capture
     "f" 'ido-at-org)
-  (leader-org-def :keymap org-mode-map
+  (leader-org-def :keymaps 'org-mode-map
     "o" 'org-open-at-point
     "t" 'org-todo
     "x" 'org-archive-subtree
     "g" 'org-set-tags-command
     "p" 'org-set-property
     )
-  (general-def :states 'insert :keymap org-mode-map
+  (general-def :states 'insert :keymaps 'org-mode-map
     "RET" '(lambda () (interactive) (org-return t))
     (kbd "<S-return>") '(lambda () (interactive) (org-return nil))
     )

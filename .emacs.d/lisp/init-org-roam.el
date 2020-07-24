@@ -8,10 +8,10 @@
   (org-roam-completion-system 'ivy)
   :config
   (require 'org-roam-protocol)
-  (leader-org-def :keymap org-roam-mode-map
+  (leader-org-def
     "r r" 'org-roam
     "r f" 'org-roam-find-file
     "r g" 'org-roam-graph-show)
-  (leader-org-def :keymap org-mode-map
+  (leader-org-def :keymaps 'org-mode-map
     "r i" 'org-roam-insert
     "r I" 'org-roam-insert-immediate))
