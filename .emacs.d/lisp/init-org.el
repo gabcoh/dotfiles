@@ -27,6 +27,7 @@
     "x" 'org-archive-subtree
     "g" 'org-set-tags-command
     "p" 'org-set-property
+    "l p" 'org-latex-preview
     )
   (general-def :states 'insert :keymaps 'org-mode-map
     "RET" '(lambda () (interactive) (org-return t))
