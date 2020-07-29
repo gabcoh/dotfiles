@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default-input-method "latin-prefix")
  '(haskell-stylish-on-save t)
  '(org-agenda-files
    (quote
@@ -15,14 +16,15 @@
      %?")
      ("t" "todo" entry
       (file+olp org-default-notes-file "Tasks")
-      "* TODO %?")
+      "* TODO %? :unfiled:")
      ("a" "appointment or scheduled event" entry
       (file+olp+datetree org-default-notes-file "Appointments")
       "* %?
  %^T"))))
  '(package-selected-packages
    (quote
-    (counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))))
+    (counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection)))
+ '(type-break-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
