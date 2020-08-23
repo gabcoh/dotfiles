@@ -24,11 +24,12 @@
   :hook (after-init . evil-mode)
   :demand
   :config
+  (setq evil-vsplit-window-right t)
 
   (general-def
     :states '(normal motion)
     :keymaps 'override
-    ":" 'execute-extended-command)
+    "SPC SPC" 'execute-extended-command)
 
   (general-define-key :keymaps 'evil-insert-state-map
 		      (general-chord "jk") 'evil-normal-state)

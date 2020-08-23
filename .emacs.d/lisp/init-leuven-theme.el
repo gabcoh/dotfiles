@@ -1,3 +1,4 @@
 (use-package leuven-theme
     :config
+    (load-theme 'leuven-dark t)
     )

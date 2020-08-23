@@ -25,7 +25,7 @@
     "o" 'org-open-at-point
     "t" 'org-todo
     "x" 'org-archive-subtree
-    "g" 'org-set-tags-command
+    "g" 'counsel-org-tag
     "p" 'org-set-property
     "l p" 'org-latex-preview
     )
