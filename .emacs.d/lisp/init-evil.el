@@ -28,8 +28,8 @@
 	evil-split-window-below t)
 
   (general-def
-    :states '(normal motion)
-    :keymaps 'override
+    :states '(normal motion emacs)
+    :keymaps 'gcc/customs-mode-map
     "SPC SPC" 'execute-extended-command)
 
   (general-define-key :keymaps 'evil-insert-state-map
@@ -79,8 +79,8 @@
 ;;; Elisp mode bindings
 
   ;; Get help easily
-  (general-def :states '(normal motion)
-	      :keymaps 'override'
+  (general-def :states '(normal motion emacs)
+	      :keymaps 'gcc/customs-mode-map
 	      :prefix "SPC"
 	      "h" 'help-for-help)
   )
