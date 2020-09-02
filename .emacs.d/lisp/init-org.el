@@ -2,9 +2,9 @@
   :after evil
   :init
   (setq
-   org-notes-dir "~/Nextcloud/notes/org/"
-   org-default-notes-file "~/Nextcloud/notes/org/inbox.org"
-   org-agenda-files '("~/Nextcloud/notes/org/inbox.org")
+   org-notes-dir "~/Nextcloud/notes/"
+   org-default-notes-file "~/Nextcloud/notes/inbox.org"
+   org-agenda-files '("~/Nextcloud/notes/inbox.org")
    org-return-follow-link t
    org-agenda-restore-windows-after-quit t
    )
@@ -33,6 +33,10 @@
     "RET" '(lambda () (interactive) (org-return t))
     (kbd "<S-return>") '(lambda () (interactive) (org-return nil))
     )
-
-  ;; (global-set-key (kbd "C-c l") 'org-store-link)
+  (general-def :keymaps 'org-agenda-mode-map
+    "h" 'org-agenda-earlier
+    "l" 'org-agenda-later
+    "j" 'org-agenda-next-line
+    "k" 'org-agenda-previous-line)
+  (add-hook 'org-agenda-mode-hook 'hl-line-mode)
   )

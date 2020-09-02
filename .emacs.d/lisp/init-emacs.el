@@ -41,8 +41,6 @@
   :ensure nil
   :after evil
   :init
-  (defvar elisp-ops-map (make-sparse-keymap)
-    "Keymap for elisp operation shortcuts.")
   (defun load-current-elisp-file ()
     "Load the current elisp file"
     (interactive)
@@ -56,13 +54,22 @@
     (interactive)
     (counsel-find-file user-emacs-directory)
     )
+  (defun gcc/eval-last-sexp-or-region ()
+      "run `eval-last-sexp` unless reigon is active in which case eval-region"
+    (interactive)
+    (message (eq mark-active t))
+    (cond
+     (mark-active (eval-last-sexp))
+     (t (eval-region))
+     )
+    )
   :config
   (leader-lisp-def
     "l" 'load-current-elisp-file
     "f" 'find-at-config
     "x" 'eval-expression
-    "r" 'eval-region
-    "s" 'eval-region)
+    "e" 'gcc/eval-last-sexp-or-region
+    )
   )
 (use-package info
   :ensure nil
@@ -103,7 +110,13 @@
 (use-package doc-view
   :ensure nil
   :config
-  (setq doc-view-resolution 144)
+  (setq doc-view-resolution 144
+	doc-view-continuous t)
+  (general-define-key :keymaps 'doc-view-mode-map
+    "j" 'doc-view-next-line-or-next-page
+    "k" 'doc-view-previous-line-or-previous-page
+    "l" 'image-forward-hscroll
+    "h" 'image-backward-hscroll)
   )
 (use-package flyspell-mode
   :ensure nil

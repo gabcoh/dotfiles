@@ -24,7 +24,8 @@
   :hook (after-init . evil-mode)
   :demand
   :config
-  (setq evil-vsplit-window-right t)
+  (setq evil-vsplit-window-right t
+	evil-split-window-below t)
 
   (general-def
     :states '(normal motion)

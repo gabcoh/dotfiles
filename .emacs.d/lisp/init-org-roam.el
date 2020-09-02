@@ -4,7 +4,7 @@
   :hook
   (after-init . org-roam-mode)
   :custom
-  (org-roam-directory "~/Nextcloud/notes/org")
+  (org-roam-directory "~/Nextcloud/notes")
   (org-roam-completion-system 'ivy)
   :config
   (require 'org-roam-protocol)
