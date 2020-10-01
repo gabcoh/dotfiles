@@ -5,6 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(default-input-method "latin-prefix")
  '(doom-modeline-buffer-file-name-style 'truncate-upto-project)
  '(haskell-stylish-on-save t)
@@ -12,7 +14,11 @@
  '(menu-bar-mode nil)
  '(org-agenda-files '("~/Nextcloud/notes/inbox.org"))
  '(org-capture-templates
-   '(("d" "diary" entry
+   '(("l" "link/toread" entry
+      (file+olp org-default-notes-file "Tasks" "Reading List")
+      "* TODO %:description
+  %:link" :immediate-finish t)
+     ("d" "diary" entry
       (file+olp+datetree org-default-notes-file "Diary")
       "* %U
      %?")
@@ -30,7 +36,7 @@
    '(ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus org-habit ol-info ol-irc ol-mhe ol-rmail ol-w3m))
  '(org-preview-latex-image-directory "/tmp/ltximg/")
  '(package-selected-packages
-   '(markdown-mode ivy-hydra counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))
+   '(pdf-tools markdown-mode ivy-hydra counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))
  '(safe-local-variable-values
    '((auto-revert-mode . t)
      (org-refile-targets

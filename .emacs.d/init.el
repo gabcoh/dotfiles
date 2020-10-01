@@ -39,6 +39,11 @@
   :config
   (setq general-non-normal-states '(insert hybrid iedit-insert))
 
+  (general-create-definer leader-lang-def
+    :states '(normal insert motion emacs)
+    :keymaps 'gcc/customs-mode-map
+    :prefix "SPC m"
+    :non-normal-prefix "C-SPC f")
   (general-create-definer leader-files-def
     :states '(normal insert motion emacs)
     :keymaps 'gcc/customs-mode-map

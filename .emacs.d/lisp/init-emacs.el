@@ -1,4 +1,12 @@
 ;; This file contains the initialization for all built in emacs packages
+(defun gcc/with-default-directory ()
+  (interactive)
+  (let (old-default-directory default-directory)
+    (setq default-directory (read-directory-name "default-directory: "))
+    (counsel-M-x)
+    (setq default-directory old-default-directory)
+    )
+  )
 (use-package emacs
   :config
   (setq backup-directory-alist `(("." . "~/.saves"))
@@ -15,6 +23,13 @@
   (set-face-attribute 'default nil :height 118)
   (winner-mode)
   (server-start)
+  (global-auto-revert-mode t)
+  )
+(use-package compile
+  :ensure nil
+  :config
+  (leader-lang-def
+   "c" 'compile)
   )
 (use-package paren
   :ensure nil
@@ -68,6 +83,7 @@
     "l" 'load-current-elisp-file
     "f" 'find-at-config
     "x" 'eval-expression
+    "p" 'eval-print-last-sexp
     "e" 'gcc/eval-last-sexp-or-region
     )
   )
@@ -82,7 +98,7 @@
    ;;; integrate ido with artist-mode
   (defun artist-ido-select-operation (type)
     "Use ido to select a drawing operation in artist-mode"
-    (interactive (list (ido-completing-read "Drawing operation: " 
+    (interactive (list (completing-read "Drawing operation: " 
 					    (list "Pen" "Pen Line" "line" "straight line" "rectangle" 
 						  "square" "poly-line" "straight poly-line" "ellipse" 
 						  "circle" "text see-thru" "text-overwrite" "spray-can" 
@@ -93,7 +109,7 @@
 
   (defun artist-ido-select-settings (type)
     "Use ido to select a setting to change in artist-mode"
-    (interactive (list (ido-completing-read "Setting: " 
+    (interactive (list (completing-read "Setting: " 
 					    (list "Set Fill" "Set Line" "Set Erase" "Spray-size" "Spray-chars" 
 						  "Rubber-banding" "Trimming" "Borders"))))
     (if (equal type "Spray-size") 
