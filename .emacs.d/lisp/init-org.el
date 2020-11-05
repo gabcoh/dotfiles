@@ -23,6 +23,7 @@
     "c" 'org-capture
     "f" 'ido-at-org)
   (leader-org-def
+    "l t" 'org-toggle-link-display
     "o" 'org-open-at-point
     "t" 'org-todo
     "x" 'org-archive-subtree
@@ -32,11 +33,15 @@
     )
   (general-def :states 'insert :keymaps 'org-mode-map
     "RET" '(lambda () (interactive) (org-return t))
-    (kbd "<S-return>") '(lambda () (interactive) (org-return nil))
+    (kbd "<S-return>") 'org-insert-heading-respect-content
+    (kbd "<S-right>") 'org-do-demote
+    (kbd "<S-left>")  'org-do-promote
+    (kbd "<M-return>") 'org-meta-return
     )
-  (general-def :states 'normal :keymaps 'org-mode-map
+  (general-def :states '(insert normal) :keymaps 'org-mode-map
     (kbd "<C-right>") 'org-demote-subtree
     (kbd "<C-left>")  'org-promote-subtree)
+
   (general-def :keymaps 'org-agenda-mode-map
     "h" 'org-agenda-earlier
     "l" 'org-agenda-later

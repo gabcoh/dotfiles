@@ -138,3 +138,11 @@
   :ensure nil
   :hook org-mode
   )
+
+(use-package edebug
+  :ensure nil
+  :config
+  (general-define-key :states 'normal :keymaps 'edebug-mode-map
+		      "TAB" 'edebug-step-mode
+		      )
+  )
