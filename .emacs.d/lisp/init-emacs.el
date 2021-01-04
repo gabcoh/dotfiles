@@ -30,6 +30,15 @@
   :config
   (leader-lang-def
    "c" 'compile)
+  (add-hook 'compilation-finish-functions
+	    (lambda (buf str)
+	      (if (null (string-match ".*exited abnormally.*" str))
+		  ;;no errors, make the compilation window go away in a few seconds
+		  (progn
+		    (run-at-time
+		     "2 sec" nil 'quit-windows-on
+		     (get-buffer-create "*compilation*"))
+		    (message "No Compilation Errors!")))))
   )
 (use-package paren
   :ensure nil

@@ -25,6 +25,9 @@
      ("t" "todo" entry
       (file+olp org-default-notes-file "Tasks" "Unfiled")
       "* TODO %?")
+     ("f" "ankify" entry
+      (file+olp org-default-notes-file "Tasks" "Ankify")
+      "* TODO %?")
      ("a" "appointment or scheduled event" entry
       (file+olp+datetree org-default-notes-file "Appointments")
       "* %?
