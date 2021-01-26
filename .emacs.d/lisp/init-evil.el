@@ -74,6 +74,8 @@
   (leader-files-def
 	      ;;"f" (ido-force-open-in-same-window ido-find-file)
 	      "f" 'counsel-find-file
+	      "w" 'find-file-other-window
+	      "F" 'find-file-other-frame
 	      "s" 'save-buffer)
 
 ;;; Elisp mode bindings

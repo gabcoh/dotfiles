@@ -5,7 +5,7 @@
    org-notes-dir "~/Nextcloud/notes/"
    org-default-notes-file "~/Nextcloud/notes/inbox.org"
    org-agenda-files '("~/Nextcloud/notes/inbox.org")
-   org-refile-targets '((org-agenda-files :maxlevel . 2))
+   org-refile-targets '((org-agenda-files :tag . "refile"))
    org-return-follow-link t
    org-agenda-restore-windows-after-quit t
    )

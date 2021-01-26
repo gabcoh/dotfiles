@@ -15,7 +15,7 @@
  '(org-agenda-files '("~/Nextcloud/notes/inbox.org"))
  '(org-capture-templates
    '(("l" "link/toread" entry
-      (file+olp org-default-notes-file "Tasks" "Reading List")
+      (file+olp org-default-notes-file "Tasks" "Reading List" "Uncategorized")
       "* TODO %:description
   %:link" :immediate-finish t)
      ("d" "diary" entry
@@ -41,8 +41,9 @@
  '(org-modules
    '(ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus org-habit ol-info ol-irc ol-mhe ol-rmail ol-w3m))
  '(org-preview-latex-image-directory "/tmp/ltximg/")
+ '(org-tags-exclude-from-inheritance '("refile"))
  '(package-selected-packages
-   '(yasnippet pdf-tools markdown-mode ivy-hydra counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))
+   '(org-pomodoro projectile yasnippet pdf-tools markdown-mode ivy-hydra counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))
  '(safe-local-variable-values
    '((auto-revert-mode . t)
      (org-refile-targets
