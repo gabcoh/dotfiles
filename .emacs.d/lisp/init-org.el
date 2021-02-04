@@ -4,7 +4,9 @@
   (setq
    org-notes-dir "~/Nextcloud/notes/"
    org-default-notes-file "~/Nextcloud/notes/inbox.org"
-   org-agenda-files '("~/Nextcloud/notes/inbox.org")
+   org-agenda-files '("~/Nextcloud/notes/inbox.org"
+		      "~/Nextcloud/notes/20210119155139-audo_ai.org"
+		      "~/Nextcloud/notes/20201118095132-soybean_innovation_lab.org")
    org-refile-targets '((org-agenda-files :tag . "refile"))
    org-return-follow-link t
    org-agenda-restore-windows-after-quit t

@@ -43,7 +43,7 @@
  '(org-preview-latex-image-directory "/tmp/ltximg/")
  '(org-tags-exclude-from-inheritance '("refile"))
  '(package-selected-packages
-   '(org-pomodoro projectile yasnippet pdf-tools markdown-mode ivy-hydra counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))
+   '(lsp-ivy lsp-ui lsp-mode org-pomodoro projectile yasnippet pdf-tools markdown-mode ivy-hydra counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))
  '(safe-local-variable-values
    '((auto-revert-mode . t)
      (org-refile-targets
