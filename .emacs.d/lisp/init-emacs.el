@@ -20,7 +20,7 @@
   (setq-default fill-column 80)
   (dolist (mode '(org-mode-hook text-mode-hook))
 	  (add-hook mode 'turn-on-auto-fill))
-  (set-face-attribute 'default nil :height 118)
+  (set-face-attribute 'default nil :height 130)
   (winner-mode)
   (server-start)
   (global-auto-revert-mode t)
@@ -154,4 +154,15 @@
   (general-define-key :states 'normal :keymaps 'edebug-mode-map
 		      "TAB" 'edebug-step-mode
 		      )
+  )
+(use-package comint
+  :ensure nil
+  :config
+  (general-define-key :states 'normal :keymaps 'comint-mode-map
+		      "s-r" 'comint-history-isearch-backward-regexp
+		      )
+  )
+(use-package type-break
+  :ensure nil
+  :hook (after-init . type-break-mode)
   )

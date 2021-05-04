@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: useState
+# key: usestate
+# --
+const [$1, set${1:$(cond
+      ((string-empty-p yas-text) "")
+      (t (concat (capitalize (substring yas-text 0 1)) (substring yas-text 1)))
+      )}] = useState($2);$0
