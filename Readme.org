@@ -4,3 +4,11 @@
 [[https://wiki.archlinux.org/index.php/Dotfiles][This ]] describes the method I am using (under Tracking dotfiles directly with
 Git). It is just a git repo with a separate working tree so I don't have to have
 a git repo in `$HOME`.
+
+** Usage tips
+*** View Untracked files
+    Because we set =status.showUntrackedFiles= to =no= when we run =config
+    status= we won't see newly added files that we may care about. So, to view
+    newly added files in directories you care about you need to run =config
+    status -unormal directory=. This tells git to showUntrackedFiles as normal
+    and gives it the directory to look in so you don't see your entire working directory.
