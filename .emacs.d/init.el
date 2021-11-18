@@ -74,6 +74,8 @@
     :keymaps 'gcc/customs-mode-map
     :prefix "SPC m"
     :non-normal-prefix "C-SPC m")
+  (general-def :states '(normal)
+    (kbd "S-SPC S-SPC")  'repeat-complex-command)
   )
 
 (dolist (file (directory-files
