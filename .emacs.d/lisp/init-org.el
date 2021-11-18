@@ -20,6 +20,11 @@
     "Keymap for elisp operation shortcuts.")
   :config
   (require 'org-protocol)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((shell . t)
+     (ditaa . t)
+     (emacs-lisp . t)))
   (leader-org-def
     "a" 'org-agenda
     "c" 'org-capture
@@ -45,8 +50,10 @@
     (kbd "<M-return>") 'org-meta-return
     )
   (general-def :states '(insert normal) :keymaps 'org-mode-map
-    (kbd "<C-right>") 'org-demote-subtree
-    (kbd "<C-left>")  'org-promote-subtree)
+    (kbd "C-<S-right>") 'org-demote-subtree
+    (kbd "C-<S-left>") 'org-promote-subtree
+    (kbd "<C-right>") 'org-do-demote
+    (kbd "<C-left>")  'org-do-promote)
 
   (general-def :keymaps 'org-agenda-mode-map
     "h" 'org-agenda-earlier
