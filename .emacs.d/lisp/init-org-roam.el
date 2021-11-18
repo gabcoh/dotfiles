@@ -1,6 +1,7 @@
 (use-package org-roam
   :after org-protocol
   :ensure t
+  :straight '(org-roam :type git :host github :repo "org-roam/org-roam-v1")
   :hook
   (after-init . org-roam-mode)
   :custom

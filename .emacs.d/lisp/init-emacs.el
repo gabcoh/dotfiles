@@ -27,6 +27,7 @@
   )
 (use-package compile
   :ensure nil
+  :straight '(:type built-in)
   :config
   (leader-lang-def
    "c" 'compile)
@@ -42,11 +43,13 @@
   )
 (use-package paren
   :ensure nil
+  :straight '(:type built-in)
   :config
   (show-paren-mode 1)
   )
 (use-package tool-bar
   :ensure nil
+  :straight '(:type built-in)
   :config
   (tool-bar-mode -1)
   )
@@ -56,6 +59,7 @@
 ;;   )
 (use-package dired
   :ensure nil
+  :straight '(:type built-in)
   :after evil
   :config
   (leader-files-def
@@ -63,6 +67,7 @@
   )
 (use-package elisp-mode
   :ensure nil
+  :straight '(:type built-in)
   :after evil
   :init
   (defun load-current-elisp-file ()
@@ -98,11 +103,13 @@
   )
 (use-package info
   :ensure nil
+  :straight '(:type built-in)
   :after evil
   :config
   )
 (use-package artist
   :ensure nil
+  :straight '(:type built-in)
   :config
    ;;; integrate ido with artist-mode
   (defun artist-ido-select-operation (type)
@@ -134,6 +141,7 @@
   )
 (use-package doc-view
   :ensure nil
+  :straight '(:type built-in)
   :config
   (setq doc-view-resolution 144
 	doc-view-continuous t)
@@ -145,11 +153,13 @@
   )
 (use-package flyspell-mode
   :ensure nil
+  :straight '(:type built-in)
   :hook org-mode
   )
 
 (use-package edebug
   :ensure nil
+  :straight '(:type built-in)
   :config
   (general-define-key :states 'normal :keymaps 'edebug-mode-map
 		      "TAB" 'edebug-step-mode
@@ -157,6 +167,7 @@
   )
 (use-package comint
   :ensure nil
+  :straight '(:type built-in)
   :config
   (general-define-key :states 'normal :keymaps 'comint-mode-map
 		      "s-r" 'comint-history-isearch-backward-regexp
@@ -164,5 +175,6 @@
   )
 (use-package type-break
   :ensure nil
+  :straight '(:type built-in)
   :hook (after-init . type-break-mode)
   )

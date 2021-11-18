@@ -1,23 +1,24 @@
 ;; start of init.el
 
-(require 'package)
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
-(setq package-enable-at-startup nil)
-(package-initialize)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-;; Setting up the package manager. Install if missing.
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(eval-and-compile
-  (setq use-package-always-ensure t))
-
-;; 
-(eval-when-compile
-  ;; Following line is not needed if use-package.el is in ~/.emacs.d
-  (require 'use-package))
+(straight-use-package 'use-package)
+;; This is apparently necessary to prevent the old versoin of org shipped with
+;; emacs from loading and messing things up. My real (use-package 'org) still
+;; runs my config
+(straight-use-package 'org)
+(setq straight-use-package-by-default :t)
 
 ;; Define custom minor mode
 (defvar gcc/customs-mode-map (make-sparse-keymap)
@@ -81,6 +82,6 @@
 (dolist (file (directory-files
 	       (expand-file-name "lisp" user-emacs-directory)
 	       t
-	       ".*\.el$"))
+	       "^[^.].*\.el$"))
   (load file))
   ;; end of init.el
