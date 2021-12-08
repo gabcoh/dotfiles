@@ -79,9 +79,6 @@
     (kbd "S-SPC S-SPC")  'repeat-complex-command)
   )
 
-(dolist (file (directory-files
-	       (expand-file-name "lisp" user-emacs-directory)
-	       t
-	       "^[^.].*\.el$"))
-  (load file))
+(load (expand-file-name "./init-packages.el" user-emacs-directory))
+
   ;; end of init.el

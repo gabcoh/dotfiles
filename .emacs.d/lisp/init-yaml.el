@@ -1,4 +1,0 @@
-(use-package yaml-mode
-  :ensure t
-  :after evil
-  )
