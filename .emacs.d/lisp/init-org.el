@@ -16,8 +16,6 @@
     (interactive)
     (ido-find-file-in-dir org-notes-dir)
     )
-  (defvar org-ops-map (make-sparse-keymap)
-    "Keymap for elisp operation shortcuts.")
   :config
   (require 'org-protocol)
   (org-babel-do-load-languages
@@ -44,8 +42,12 @@
     "p" 'org-set-property
     "l p" 'org-latex-preview
     )
+  (general-def :states '(normal motion emacs)
+	      :keymaps 'org-mode-map
+	      "TAB" 'org-cycle)
   (general-def :states 'insert :keymaps 'org-mode-map
-    "RET" '(lambda () (interactive) (org-return t))
+    "TAB" 'org-indent-line
+    "RET" 'org-return 
     (kbd "<S-return>") 'org-insert-heading
     (kbd "<M-return>") 'org-meta-return
     )

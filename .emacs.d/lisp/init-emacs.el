@@ -83,22 +83,13 @@
     (interactive)
     (counsel-find-file user-emacs-directory)
     )
-  (defun gcc/eval-last-sexp-or-region ()
-      "run `eval-last-sexp` unless reigon is active in which case eval-region"
-    (interactive)
-    (message (eq mark-active t))
-    (cond
-     (mark-active (eval-last-sexp))
-     (t (eval-region))
-     )
-    )
   :config
   (leader-lisp-def
     "l" 'load-current-elisp-file
     "f" 'find-at-config
     "x" 'eval-expression
-    "p" 'eval-print-last-sexp
-    "e" 'gcc/eval-last-sexp-or-region
+    "p" 'eval-last-sexp
+    "P" 'eval-print-last-sexp
     )
   )
 (use-package info
@@ -177,4 +168,9 @@
   :ensure nil
   :straight '(:type built-in)
   :hook (after-init . type-break-mode)
+  )
+(use-package undo-tree
+  :ensure nil
+  :straight '(:type built-in)
+  :hook (after-init . global-undo-tree-mode)
   )

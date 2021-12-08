@@ -32,8 +32,16 @@
     :keymaps 'gcc/customs-mode-map
     "SPC SPC" 'execute-extended-command)
 
+  (defun paste-star-after ()
+      (interactive)
+    (evil-paste-after "*"))
+  (defun paste-plus-after ()
+      (interactive)
+    (evil-paste-after "+"))
   (general-define-key :keymaps 'evil-insert-state-map
-		      (general-chord "jk") 'evil-normal-state)
+		      (general-chord "jk") 'evil-normal-state
+		      (general-chord "q+") 'paste-plus-after
+		      (general-chord "q*") 'paste-star-after)
 
   (general-def 'normal "U" 'undo-tree-visualize)
 

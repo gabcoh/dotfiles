@@ -7,8 +7,12 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
+ '(compilation-scroll-output 'first-error)
+ '(custom-safe-themes
+   '("aba75724c5d4d0ec0de949694bce5ce6416c132bb031d4e7ac1c4f2dbdd3d580" "a44bca3ed952cb0fd2d73ff3684bda48304565d3eb9e8b789c6cca5c1d9254d1" "819ab08867ef1adcf10b594c2870c0074caf6a96d0b0d40124b730ff436a7496" default))
  '(default-input-method "latin-prefix")
  '(doom-modeline-buffer-file-name-style 'truncate-upto-project)
+ '(doom-modeline-mode t)
  '(haskell-stylish-on-save t)
  '(hl-sexp-background-color "#efebe9")
  '(menu-bar-mode nil)
@@ -17,7 +21,9 @@
    '(("l" "link/toread" entry
       (file+olp org-default-notes-file "Tasks" "Reading List" "Uncategorized")
       "* TODO %:description
-  %:link" :immediate-finish t)
+:PROPERTIES:
+:URL: %:link
+:END:" :immediate-finish t)
      ("d" "diary" entry
       (file+olp+datetree org-default-notes-file "Diary")
       "* %U
@@ -43,7 +49,8 @@
  '(org-preview-latex-image-directory "/tmp/ltximg/")
  '(org-tags-exclude-from-inheritance '("refile"))
  '(package-selected-packages
-   '(lsp-ivy lsp-ui lsp-mode org-pomodoro projectile yasnippet pdf-tools markdown-mode ivy-hydra counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))
+   '(utop company purescript-mode exec-path-from-shell disable-mouse magit rjsx-mode typescript-mode rust-mode anki-editor lsp-ivy lsp-ui lsp-mode org-pomodoro projectile yasnippet pdf-tools markdown-mode ivy-hydra counsel ivy evil org-drill org-roam-protoco org-roam-protocol org-protocol general pyvenv pyenv emacsql-sqlite3 org-roam geiser leuven-theme org-noter flyspell-mode web-mode yaml-mode doom-modeline haskell-mode which-key use-package key-chord evil-leader evil-collection))
+ '(purescript-mode-hook '(turn-on-purescript-indent))
  '(safe-local-variable-values
    '((auto-revert-mode . t)
      (org-refile-targets
