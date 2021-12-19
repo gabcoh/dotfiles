@@ -17,6 +17,9 @@
  '(hl-sexp-background-color "#efebe9")
  '(menu-bar-mode nil)
  '(org-agenda-files '("~/Nextcloud/notes/inbox.org"))
+ '(org-board-default-browser 'system)
+ '(org-board-wget-switches
+   '("-e robots=off" "--page-requisites" "--adjust-extension" "--convert-links" "--span-hosts"))
  '(org-capture-templates
    '(("l" "link/toread" entry
       (file+olp org-default-notes-file "Tasks" "Reading List" "Uncategorized")
