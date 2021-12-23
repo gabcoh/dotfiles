@@ -1,7 +1,9 @@
 (use-package anki-editor
   :ensure t)
 (use-package company
-  :ensure t)
+  :ensure t
+  :config
+  (global-company-mode))
 (use-package doom-modeline
   :ensure t
   :after evil
@@ -111,6 +113,12 @@
   :ensure nil
   :straight '(:type built-in)
   :config
+  (general-define-key :states '(normal motion) :keymaps 'artist-mode-map
+		      "RET" 'artist-key-set-point
+		      "h" 'artist-backward-char
+		      "j" 'artist-next-line
+		      "k" 'artist-previous-line
+		      "l" 'artist-forward-char)
    ;;; integrate ido with artist-mode
   (defun artist-ido-select-operation (type)
     "Use ido to select a drawing operation in artist-mode"
