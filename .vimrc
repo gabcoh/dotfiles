@@ -1,3 +1,4 @@
+" mudot destination: ~--> '~/.vimrc'
 " vim: set foldmethod=marker
 "Welcome to Gabe's nVimrc
 "|   | _____
