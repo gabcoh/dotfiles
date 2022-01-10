@@ -8,6 +8,9 @@ set -x GOPATH ~/code/go
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f ~/.config/tabtab/__tabtab.fish ]; and . ~/.config/tabtab/__tabtab.fish; or true
+# See https://github.com/flameshot-org/flameshot/blob/master/docs/Sway%20and%20wlroots%20support.md
+set -x SDL_VIDEODRIVER "wayland"
+set -x _JAVA_AWT_WM_NONREPARENTING "1"
+set -x  QT_QPA_PLATFORM "wayland"
+set -x XDG_CURRENT_DESKTOP "sway"
+set -x XDG_SESSION_DESKTOP "sway"

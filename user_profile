@@ -1,4 +1,0 @@
-# mudot destination: ~--> '~/.user_profile'
-# This should be sourced by .profile
-
-export $(gnome-keyring-daemon --start --components=ssh)

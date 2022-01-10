@@ -10,14 +10,25 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # standard init
-exec --no-startup-id ~/.local/bin/xinit
-exec --no-startup-id pasystray
+# See https://github.com/flameshot-org/flameshot/blob/master/docs/Sway%20and%20wlroots%20support.md
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+exec_always swaybg -i `ls ~/wallpapers/*.png | shuf -n 1`
+exec flameshot
+exec nextcloud
+
+exec swayidle -w \
+                timeout 300 'swaylock -f -i `ls ~/wallpapers/*.png | shuf -n 1`' \
+                timeout 600 'systemctl suspend' \
+                before-sleep 'swaylock -f -i `ls ~/wallpapers/*.png | shuf -n 1`'
 
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:Source Code Pro Bold 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -34,7 +45,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -43,11 +54,11 @@ bindsym $mod+Shift+q kill
 bindsym $mod+t layout toggle split
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -terminal urxvt -show drun"
+bindsym $mod+d exec "fuzzel"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -141,14 +152,12 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -B 'Yes, exit sway' 'swaymsg exit'"
 
 #suspend 
-bindsym $mod+Shift+s exec --no-startup-id "xautolock -locknow"
+bindsym $mod+Shift+s exec "pkill -USR1 swayidle"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -178,32 +187,31 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5\% # increase volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5\% # decrease volume
-
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5\% # increase volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5\% # decrease volume
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
-    font pango:DejaVu Sans Mono 9
+    status_command i3status -c ~/.config/i3/i3status.conf
+    font pango:Source Code Pro Medium 10
+    colors {
+    	   separator #999999
+    }
 }
-
-#exec --no-startup-id tint2
-exec dex -ae i3 -s ~/.config/autostart
 
 #gaps specific
 #Needed for i3-gaps
 #hide_edge_borders both
 #for_window [class="^.*"] border pixel 2 
-#gaps inner 10
-#gaps outer 10
+gaps inner 10
+gaps outer 10
 
-#smart_gaps on
-#smart_borders on
+smart_gaps on
+smart_borders on
 # Color settings
 
 set $bg-color 	         #0664c9
