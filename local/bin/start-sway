@@ -1,0 +1,7 @@
+#!/bin/sh
+
+eval $(gnome-keyring-daemon --start -c ssh,secrets)
+export SSH_AUTH_SOCK
+export GNOME_KEYRING_CONTROL
+
+exec sway
