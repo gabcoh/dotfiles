@@ -8,51 +8,51 @@
 "|   | __|__
 
 "{{{Manage Vundle 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/plugins')
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin(~/some/path/here)
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
-"airline information bar
-Plugin 'bling/vim-airline'
-"indent level display
-Plugin 'yggdroot/indentline'
-"awesome motions
-Plugin 'easymotion/vim-easymotion'
-"Nerdtree 
-Plugin 'scrooloose/nerdtree'
-"colorschemes
-Plugin 'flazz/vim-colorschemes'
-"glsl syntax
-Plugin 'glsl.vim'
-"go lang pugin
-"Plugin 'fatih/vim-go'
-"startup
-Plugin 'mhinz/vim-startify'
-"closure plugin
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'leafgarland/typescript-vim'
-
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-
-Plugin 'lervag/vimtex'
-
-Plugin 'dhruvasagar/vim-table-mode'
-
-Plugin 'jceb/vim-orgmode'
-
-"util snips
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
+" set nocompatible              " be iMproved, required
+" filetype off                  " required
+" 
+" " set the runtime path to include Vundle and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin('~/.vim/plugins')
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin(~/some/path/here)
+" " let Vundle manage Vundle, required
+" Plugin 'gmarik/vundle'
+" "airline information bar
+" Plugin 'bling/vim-airline'
+" "indent level display
+" Plugin 'yggdroot/indentline'
+" "awesome motions
+" Plugin 'easymotion/vim-easymotion'
+" "Nerdtree 
+" Plugin 'scrooloose/nerdtree'
+" "colorschemes
+" Plugin 'flazz/vim-colorschemes'
+" "glsl syntax
+" Plugin 'glsl.vim'
+" "go lang pugin
+" "Plugin 'fatih/vim-go'
+" "startup
+" Plugin 'mhinz/vim-startify'
+" "closure plugin
+" Plugin 'kien/rainbow_parentheses.vim'
+" Plugin 'leafgarland/typescript-vim'
+" 
+" Plugin 'junegunn/fzf'
+" Plugin 'junegunn/fzf.vim'
+" 
+" Plugin 'lervag/vimtex'
+" 
+" Plugin 'dhruvasagar/vim-table-mode'
+" 
+" Plugin 'jceb/vim-orgmode'
+" 
+" "util snips
+" " Track the engine.
+" Plugin 'SirVer/ultisnips'
+" 
+" call vundle#end()            " required
+" filetype plugin indent on    " required
 
 "other plugins
 packloadall
@@ -108,7 +108,7 @@ set laststatus=2
 "set up proper colors
 syntax enable
 set background=light
-colorscheme PaperColor 
+" colorscheme PaperColor 
 set t_Co=256
 
 set guioptions=e
@@ -151,7 +151,7 @@ vnoremap <leader>' <esc>i'<esc>`>i'<esc>gv
 vnoremap <leader>" <esc>i"<esc>`>i"<esc>gv
 
 "exit insert mode with 
-inoremap jk <esc>
+inoremap fd <esc>
 inoremap <esc> <nop>
 
 "insert new line above or below curser
@@ -182,10 +182,10 @@ onoremap al{ :<c-u>normal! F{va{<cr>
 " }}}
 
 " {{{ RainbowParens setup
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 " }}}
 
 " {{{ notatoinal-fzf Setup
