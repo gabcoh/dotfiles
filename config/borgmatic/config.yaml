@@ -1,0 +1,47 @@
+location:
+    source_directories:
+        - /home
+        - /etc
+
+    repositories:
+        - m25ze2tl@m25ze2tl.repo.borgbase.com:repo
+
+    exclude_patterns:
+        - '*.pyc'
+        - ~/*/.cache
+        - '**/node_modules'
+        - '**/venv'
+
+    exclude_if_present: .nobackup
+    one_file_system: true
+
+storage:
+    compression: auto,zstd
+    archive_name_format: '{hostname}-{now:%Y-%m-%d-%H%M%S}'
+    encryption_passcommand: secret-tool lookup repo_url m25ze2tl@m25ze2tl.repo.borgbase.com:repo
+    ssh_command: ssh -i /home/gabe/.ssh/6-2019_id_rsa
+
+retention:
+    keep_daily: 3
+    keep_weekly: 4
+    keep_monthly: 12
+    keep_yearly: 2
+    prefix: '{hostname}-'
+
+consistency:
+    checks:
+        # Uncomment to always do integrity checks.
+        # (takes long time for larger repos)
+        #- repository
+        - disabled
+
+    check_last: 3
+    prefix: '{hostname}-'
+
+hooks:
+    # Shell commands to execute before or after a backup
+    before_backup:
+        - notify-send "Starting borg backup"
+
+    after_backup:
+        - notify-send "`date` - Finished backup"
