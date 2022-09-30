@@ -1,7 +1,6 @@
 location:
     source_directories:
         - /home
-        - /etc
 
     repositories:
         - m25ze2tl@m25ze2tl.repo.borgbase.com:repo
