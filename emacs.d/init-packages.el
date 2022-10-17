@@ -22,7 +22,7 @@
   :config
   (setq backup-directory-alist `(("." . "~/.saves"))
 	auto-save-file-name-transforms `((".*" "~/.saves/" t))
-	custom-file "~/.emacs.d/emacs-custom.el"
+	custom-file (expand-file-name "./emacs-custom.el" user-emacs-directory)
 	inhibit-startup-screen t
 	exec-path (append exec-path '("~/.local/bin"))
 
@@ -232,7 +232,7 @@
       (interactive)
     (evil-paste-after "+"))
   (general-define-key :keymaps 'evil-insert-state-map
-		      (general-chord "jk") 'evil-normal-state
+		      (general-chord "fd") 'evil-normal-state
 		      (general-chord "q+") 'paste-plus-after
 		      (general-chord "q*") 'paste-star-after)
 

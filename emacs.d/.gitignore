@@ -18,3 +18,5 @@ tramp
 transient/
 type-break
 .#*
+straight/*
+!straight/versions
