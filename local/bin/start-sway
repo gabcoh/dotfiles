@@ -4,4 +4,8 @@ eval $(gnome-keyring-daemon --start -c ssh,secrets)
 export SSH_AUTH_SOCK
 export GNOME_KEYRING_CONTROL
 
+# set SSH_AUTH_SOCK env var in emacs to enable pushing from magit
+# hopefully gracefully fails if emacs server is not started
+emacsclient -ca true -e "(setenv \"SSH_AUTH_SOCK\" \"$SSH_AUTH_SOCK\")"
+
 exec sway
